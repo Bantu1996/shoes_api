@@ -1,42 +1,47 @@
-const shoesElem = document.querySelector(".shoes");
-const shoesList = document.querySelector(".shoesList");
-const brandsElem = document.querySelector(".brand");
-const colorsElem = document.querySelector(".color")
-const pricesElem = document.querySelector(".price")
-const sizesElem = document.querySelector(".size")
-const in_stockElem = document.querySelector(".in_stock")
-const shoesTemplateText = document.querySelector(".shoesTemplateText").innerHTML;
-const shoesTemplate = Handlebars.compile(shoesTemplateText);
+// const shoesElem = document.querySelector(".shoes");
+// const shoesList = document.querySelector(".shoesList");
+// const brandsElem = document.querySelector(".brand");
+// const colorsElem = document.querySelector(".color")
+// const pricesElem = document.querySelector(".price")
+// const sizesElem = document.querySelector(".size")
+// const in_stockElem = document.querySelector(".in_stock")
+// const shoesTemplateText = document.querySelector(".shoesTemplateText").innerHTML;
+// const shoesTemplate = Handlebars.compile(shoesTemplateText);
 const addBtn =document.querySelector(".addBtn")
 
-let brandsListTemplateInstance = Handlebars.compile(brandsListTemplate.innerHTML);
+// let brandsListTemplateInstance = Handlebars.compile(brandsListTemplate.innerHTML);
 
-const brandSelection = document.querySelector(".brandSelection");
-const filterButton = document.querySelector(".button");
-const sizeListFilter = document.querySelector(".sizeListFilter");
-const colorsListFilter = document.querySelector(".colorsListFilter");
-const sizeFilterTemplateText = document.querySelector(".sizeFilterTemplateText").innerHTML;
-const colorsFilterTemplateText = document.querySelector(".colorsFilterTemplateText").innerHTML;
-const sizeFilterTemplate = Handlebars.compile(sizeFilterTemplateText);
-const colorsFilterTemplate = Handlebars.compile(colorsFilterTemplateText);
+// const brandSelection = document.querySelector(".brandSelection");
+// const filterButton = document.querySelector(".button");
+// const sizeListFilter = document.querySelector(".sizeListFilter");
+// const colorsListFilter = document.querySelector(".colorsListFilter");
+// const sizeFilterTemplateText = document.querySelector(".sizeFilterTemplateText").innerHTML;
+// const colorsFilterTemplateText = document.querySelector(".colorsFilterTemplateText").innerHTML;
+// const sizeFilterTemplate = Handlebars.compile(sizeFilterTemplateText);
+// const colorsFilterTemplate = Handlebars.compile(colorsFilterTemplateText);
 
 
 
 function filterShoes() {
 
-    let brand = brandSelection.value;
+    // let brand = brandSelection.value;
+    
     // let size = sizeSelection.value;
 
     axios
-    .get('/api/brands' + brand)
+    .get('/api/shoes')
     .then(function(results){
         let response = results.data;
-        let data = response.data;
-        let html = brandsListTemplateInstance({
-            brandsList: data
-        });
-        brandsElem.innerHTML = html;
-    });
+        // let data = response.data;
+        console.log(response);
+        
+        // let html = brandsListTemplateInstance({
+        //     brandsList: data
+        // });
+        // brandsElem.innerHTML = html;
+    }).catch(e => console.log(e))
+
+    
 
 }
 

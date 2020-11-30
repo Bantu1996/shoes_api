@@ -15,6 +15,7 @@ const bodyParser = require('body-parser');
 
 
 const BrandsFunction = require('./functions/brands-function');
+const BrandsListFunction = require('./functions/brandsList-function');
 const ColorsFunction = require('./functions/colors-function');
 const SizesFunction = require('./functions/sizes-function');
 const Stock_levelFunction = require('./functions/stock_level-function');
@@ -32,6 +33,7 @@ const pool = new Pool({
 
 const brandsFunction = BrandsFunction(pool);
 const brandsRoutes = Brands(brandsFunction);
+const brandsListFunction = BrandsListFunction(pool)
 const categoryAPI = BrandsAPI(brandsFunction);
 const colorsFunction = ColorsFunction(pool);
 const colorsRoutes = Colors(colorsFunction);
@@ -79,9 +81,13 @@ app.get('/', function (req, res) {
 
 //GET	/api/shoes	List all shoes in stock
 
-app.get('/api/shoes', function (req, res) {
-    res.render('index')
-})
+app.get('/api/shoes', async function (req, res) {
+    var data = await brandsListFunction.getList()
+    console.log(data);
+    
+    res.send(data)
+}
+    )
 
 // GET	/api/shoes/brand/:brandname	List all shoes for a given brand
 app.get('/api/shoes/brand/:brandname', function (req, res) {
@@ -108,7 +114,7 @@ app.post('/api/shoes/sold/:id', function (req, res) {
 
 // POST	/api/shoes
 
-app.post('/api/shoes/brand/', async function (req, res) {
+app.post('/api/shoes/brand', async function (req, res) {
     var branding = req.body.brand;
     var colouring = req.body.color;
     // var sizing = req.body.size;
@@ -132,17 +138,18 @@ app.post('/api/shoes/brand/', async function (req, res) {
     }
     //  const colId = await colorsFunction.colorId(colouring)
 
-    res.render('index', {
-        brand: await brandsFunction.getList(),
-        brand: await colorsFunction.getList()
+    res.send(await brandsListFunction.getList())
+    // res.render('index', {
+    //     brand: await brandsFunction.getList(),
+    //     bran: await colorsFunction.getList()
 
-        // color: colouring,
-        // colors,
-        // colId,
-        // sizing,
-        // pricing,
-        // stocking
-    })
+    //     // color: colouring,
+    //     // colors,
+    //     // colId,
+    //     // sizing,
+    //     // pricing,
+    //     // stocking
+    // })
 })
 
 

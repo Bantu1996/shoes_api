@@ -28,6 +28,23 @@ create table sizes(
     );
 
 
+create table brandsList(
+    id serial not null primary key,
+    brand_name text not null,
+    color text not null,
+    size int not null,
+    price int not null,
+    qty_in_stock int not null
+     
+);
+
+
+
+insert into brandsList(id, brand_name, color, size, price, qty_in_stock) values (1, 'Nike', 'Blue', 350, 5, 7);
+insert into brandsList(id, brand_name, color, size, price, qty_in_stock) values (2, 'Nike', 'Red', 400, 8, 5);
+insert into brandsList(id, brand_name, color, size, price, qty_in_stock) values (3, 'Adidas', 'Black', 500, 8, 4);
+insert into brandsList(id, brand_name, color, size, price, qty_in_stock) values (4, 'Reebok', 'Black', 800, 7, 3);
+
 
 
 

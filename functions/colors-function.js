@@ -7,7 +7,7 @@ module.exports = function ColorsFunction(pool){
     }
 
  async function brandColorsId(id) {
-        var check = await pool.query('SELECT id FROM colors WHERE brands_id=$1 ', [id]);
+        var check = await pool.query('SELECT id FROM colors WHERE colors_id=$1 ', [id]);
         return check;
     }
 
