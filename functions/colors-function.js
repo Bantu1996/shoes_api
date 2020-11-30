@@ -16,16 +16,15 @@ module.exports = function ColorsFunction(pool){
 // return results.rows
 // }
 
-    async function insertFun(id, color, id) {
-        // var colrId = await brandColorsId(id)
+    async function insertFun(color) {
         var using = color.charAt(0).toUpperCase() + color.slice(1).toLowerCase()
-        let query = await pool.query('insert into colors(id, color, brands_id) values ($1, $2, $3);', [id, using, id]);
+        let query = await pool.query('insert into colors(color) values ($1);', [using]);
         return query
 
     }
 
     async function getList() {
-        var list = await pool.query('SELECT color FROM colors')
+        var list = await pool.query('SELECT id, color FROM colors')
         return list.rows;
     }
     return{

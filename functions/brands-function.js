@@ -15,7 +15,7 @@ module.exports = function BrandsFunction(pool){
     }
 
     async function getList() {
-        var list = await pool.query('SELECT brand_name FROM brands')
+        var list = await pool.query('SELECT id, brand_name FROM brands')
         return list.rows;
     }
 

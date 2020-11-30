@@ -1,5 +1,5 @@
 const assert = require('assert');
-const brandsFunction = require('../brands-function');
+const brandsFunction = require('../functions/brands-function');
 const pg = require("pg");
 const Pool = pg.Pool;
 
@@ -23,7 +23,20 @@ describe('Shoes API', function () {
 
   });
 
+  it("should be able to enter a name", async function () {
 
+  
+    await brands.insertFun("Ban")
+    var num = await brands.getList();
+    assert.deepEqual([
+     
+      {
+       brand_name: 'Ban'
+      }
+
+    ], num);
+    console.log(num);
+  });
 
 
 after(function () {

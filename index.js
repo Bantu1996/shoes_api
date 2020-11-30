@@ -4,10 +4,8 @@ const Colors = require('./routes/colors');
 const ColorsAPI = require('./api/colors-api');
 const Sizes = require('./routes/sizes');
 const SizesAPI = require('./api/sizes-api');
-const Prices = require('./routes/prices');
-const PricesAPI = require('./api/prices-api');
-const In_stock = require('./routes/in_stock');
-const In_stockAPI = require('./api/in_stock-api');
+const Stock_level = require('./routes/stock_level');
+const Stock_levelAPI = require('./api/stock_level-api');
 
 
 const express = require('express');
@@ -19,8 +17,7 @@ const bodyParser = require('body-parser');
 const BrandsFunction = require('./functions/brands-function');
 const ColorsFunction = require('./functions/colors-function');
 const SizesFunction = require('./functions/sizes-function');
-const PricesFunction = require('./functions/prices-function');
-const In_stockFunction = require('./functions/in_stock-function');
+const Stock_levelFunction = require('./functions/stock_level-function');
 
 
 var exphbs = require('express-handlebars');
@@ -42,12 +39,9 @@ const colorsAPI = ColorsAPI(colorsFunction);
 const sizesFunction = SizesFunction(pool);
 const sizesRoutes = Sizes(sizesFunction);
 const sizesAPI = SizesAPI(sizesFunction);
-const pricesFunction = PricesFunction(pool);
-const pricesRoutes = Prices(pricesFunction);
-const pricesAPI = PricesAPI(pricesFunction);
-const in_stockFunction = In_stockFunction(pool);
-const in_stockRoutes = In_stock(in_stockFunction);
-const in_stockAPI = In_stockAPI(in_stockFunction);
+const stock_levelFunction = Stock_levelFunction(pool);
+const stock_levelRoutes = Stock_level(stock_levelFunction);
+const stock_levelAPI = Stock_levelAPI(stock_levelFunction);
 
 
 const app = express();
@@ -116,7 +110,7 @@ app.post('/api/shoes/sold/:id', function (req, res) {
 
 app.post('/api/shoes/brand/', async function (req, res) {
     var branding = req.body.brand;
-    // var colouring = req.body.color;
+    var colouring = req.body.color;
     // var sizing = req.body.size;
     // var pricing = req.body.price;
     // var stocking = req.body.in_stock
@@ -127,20 +121,21 @@ app.post('/api/shoes/brand/', async function (req, res) {
     else {
         // var cilId = await colorsFunction.brandColorsId();
         var brands = await brandsFunction.insertFun(branding);
-        // var colors = await colorsFunction.insertFun(colouring);
+        var colors = await colorsFunction.insertFun(colouring);
         if (brands === true) {
             req.flash('success', "You have successfully entered brand")
         }
-    //     else if(colors === true){
-    //          req.flash('success', "You have successfully entered color")
+        else if(colors === true){
+             req.flash('success', "You have successfully entered color")
 
-    //     }
-     }
+        }
+    }
     //  const colId = await colorsFunction.colorId(colouring)
 
     res.render('index', {
         brand: await brandsFunction.getList(),
-        // brand: await colorsFunction.getList()
+        brand: await colorsFunction.getList()
+
         // color: colouring,
         // colors,
         // colId,
