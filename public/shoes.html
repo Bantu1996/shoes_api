@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shoe Maker</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.4.2/handlebars.js" integrity="sha256-hSzapznWRy/aOZkctlN03an9DxCLlN8ZCQS0lxntiHg=" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.19.0/axios.min.js" integrity="sha256-S1J4GVHHDMiirir9qsXWc8ZWw74PHHafpsHp5PXtjTs=" crossorigin="anonymous"></script>
+
+
+    <script type="text/x-script" class="html">
+        <table>
+            <tr>
+                <th>Brand</th>
+                <th>Color</th>
+                <th>Price</th>
+				<th>Size</th>
+				<th>In_stock</th>
+            </tr>
+            {{#each sizeFilter}}
+
+
+            <tr>
+                <td>
+                    <li>{{this.brand}}</li>
+                </td>
+                <td>
+                    <li>{{this.color}}</li>
+                </td>
+                <td>
+                    <li>{{this.price}}</li>
+                </td>
+                <td>
+                    <li>{{this.size}}</li>
+				</td>
+				<td>
+                    <li>{{this.in_stock}}</li>
+                </td>
+            </tr>
+
+
+            {{/each}}
+        </table>
+
+
+    </script>
+
+</head>
+
+<body>
+
+    <h1 style="text-align: center;">Shoe Maker</h1>
+<br>
+<br>
+<br>
+    <!-- <form action="/in_stock/add" method="POST"> -->
+    <div class="insertingDiv" style="text-align: justify;">
+
+
+
+    <div class=" dropdown " style="text-align: center;">
+        <h1>Brand</h1>
+
+
+        <select class="brandsList brandSelection "></select>
+
+
+
+        <!-- <h1>Size</h1>
+        <select class="sizesList sizeSelection ">
+
+    </select> -->
+
+        <button type="button " name="button " class="button ">Search</button>
+
+    </div>
+
+    <h2>Results</h2>
+    <div class="brandsFilter">
+        <div class="brandsListFilter">
+
+
+        </div>
+
+    </div>
+
+</body>
+<script src="shoes.js"></script>
+
+</html>

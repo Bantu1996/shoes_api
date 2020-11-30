@@ -1,0 +1,78 @@
+<div class="row">
+
+<h1>Shoe Maker</h1>
+
+{{#if messages.error}}
+<div class="entry">
+    <h1> {{messages.error}}</h1>
+</div>
+{{/if}}
+
+{{#if messages.success}}
+<div class="entry">
+    <h1> {{messages.success}}</h1>
+</div>
+{{/if}}
+
+<form action="/api/shoes/brand/" method="POST">
+<div class="inserter">
+        <div>
+            <label for="">Brand:
+            <input type="text" name="brand" value="" class="brand">
+            </label>
+        </div>
+        <div>
+            <label for="">Color:
+            <input type="text" name="color" value="" class="color">
+            </label>
+        </div>
+
+        <div>
+            <label for="">Size:
+            <input type="number" name="size" value="" class="size">
+            </label>
+        </div>
+
+        <div>
+            <label for="">Price:
+            <input type="number" step="any" name="price" value="" class="price">
+            </label>
+        </div>
+
+        <div>
+            <label for="">In_stock:
+            <input type="number" step="any" name="in_stock" value="" class="in_stock">
+            </label>
+        </div>
+        <button type="submit" class="addBtn">ADD</button>
+
+    </div>
+</form>
+
+<div class="available">
+<h3>Shoes Available</h3>
+{{#each brand}}
+<div class="tableStyle">
+
+<p>Brand:{{this.brand_name}}</p>
+  <p>Color:{{this.color}}</p>
+  <p>Size:{{this.size}}</p>
+  <p>Price:{{this.price}}</p>
+  <p>In_Stock:{{this.in_stock}}</p>
+
+<button type="submit" class="cart">Add to Cart</button>
+  
+</div>
+{{/each}}
+</div>
+
+
+{{!-- <a href="/products/add">Add</a> --}}
+
+
+{{#no_products}}
+<p>No products available yet. Add some above.</p>
+{{/no_products}}
+
+
+</div>
