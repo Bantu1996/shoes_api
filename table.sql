@@ -40,28 +40,28 @@ create table brandsList(
 
 
 
-insert into brandsList(id, brand_name, color, size, price, qty_in_stock) values (1, 'Nike', 'Blue', 350, 5, 7);
-insert into brandsList(id, brand_name, color, size, price, qty_in_stock) values (2, 'Nike', 'Red', 400, 8, 5);
-insert into brandsList(id, brand_name, color, size, price, qty_in_stock) values (3, 'Adidas', 'Black', 500, 8, 4);
-insert into brandsList(id, brand_name, color, size, price, qty_in_stock) values (4, 'Reebok', 'Black', 800, 7, 3);
-insert into brandsList(id, brand_name, color, size, price, qty_in_stock) values (5, 'Vans', 'Yellow', 200, 4, 2);
-insert into brandsList(id, brand_name, color, size, price, qty_in_stock) values (6, 'Crocs', 'White', 250, 8, 7);
-insert into brandsList(id, brand_name, color, size, price, qty_in_stock) values (7, 'Vivo', 'Black', 100, 4, 8);
-insert into brandsList(id, brand_name, color, size, price, qty_in_stock) values (8, 'Adidas', 'Blue', 900, 8, 4);
-insert into brandsList(id, brand_name, color, size, price, qty_in_stock) values (9, 'Reebok', 'Purple', 400, 7, 7);
-insert into brandsList(id, brand_name, color, size, price, qty_in_stock) values (10, 'Nike', 'Purple', 700, 8, 9);
+insert into brandsList(id, brand_name, color, size, price, qty_in_stock) values (1, 'Nike', 'Blue', 5, 350, 7);
+insert into brandsList(id, brand_name, color, size, price, qty_in_stock) values (2, 'Nike', 'Red', 8, 400, 5);
+insert into brandsList(id, brand_name, color, size, price, qty_in_stock) values (3, 'Adidas', 'Black', 8, 500, 4);
+insert into brandsList(id, brand_name, color, size, price, qty_in_stock) values (4, 'Reebok', 'Black', 7, 800, 3);
+insert into brandsList(id, brand_name, color, size, price, qty_in_stock) values (5, 'Vans', 'Yellow', 8, 200, 2);
+insert into brandsList(id, brand_name, color, size, price, qty_in_stock) values (6, 'Crocs', 'White', 8, 250, 7);
+insert into brandsList(id, brand_name, color, size, price, qty_in_stock) values (7, 'Vivo', 'Black', 4, 100, 8);
+insert into brandsList(id, brand_name, color, size, price, qty_in_stock) values (8, 'Adidas', 'Blue', 8, 900, 4);
+insert into brandsList(id, brand_name, color, size, price, qty_in_stock) values (9, 'Reebok', 'Purple', 7, 400, 7);
+insert into brandsList(id, brand_name, color, size, price, qty_in_stock) values (10, 'Nike', 'Purple', 9, 700, 9);
 
 
-insert into brandsList(id, brand_name, color, size, price, qty_in_stock) values (11, 'Adidas', 'Red', 450, 5, 7);
-insert into brandsList(id, brand_name, color, size, price, qty_in_stock) values (12, 'Vivo', 'Red', 400, 8, 5);
-insert into brandsList(id, brand_name, color, size, price, qty_in_stock) values (13, 'Nike', 'Black', 500, 8, 4);
-insert into brandsList(id, brand_name, color, size, price, qty_in_stock) values (14, 'Crocs', 'Black', 800, 7, 3);
-insert into brandsList(id, brand_name, color, size, price, qty_in_stock) values (15, 'Nike', 'Yellow', 200, 4, 2);
-insert into brandsList(id, brand_name, color, size, price, qty_in_stock) values (16, 'Adidas', 'White', 250, 8, 7);
-insert into brandsList(id, brand_name, color, size, price, qty_in_stock) values (17, 'Reebok', 'Black', 100, 4, 8);
-insert into brandsList(id, brand_name, color, size, price, qty_in_stock) values (18, 'Vans', 'Blue', 900, 8, 4);
-insert into brandsList(id, brand_name, color, size, price, qty_in_stock) values (19, 'Vans', 'Purple', 400, 7, 7);
-insert into brandsList(id, brand_name, color, size, price, qty_in_stock) values (20, 'Adidas', 'Purple', 700, 8, 9);
+insert into brandsList(id, brand_name, color, size, price, qty_in_stock) values (11, 'Adidas', 'Red', 5, 450, 7);
+insert into brandsList(id, brand_name, color, size, price, qty_in_stock) values (12, 'Vivo', 'Red', 8, 400, 5);
+insert into brandsList(id, brand_name, color, size, price, qty_in_stock) values (13, 'Nike', 'Black', 8, 500, 4);
+insert into brandsList(id, brand_name, color, size, price, qty_in_stock) values (14, 'Crocs', 'Black', 7, 800, 3);
+insert into brandsList(id, brand_name, color, size, price, qty_in_stock) values (15, 'Nike', 'Yellow', 4, 200, 2);
+insert into brandsList(id, brand_name, color, size, price, qty_in_stock) values (16, 'Adidas', 'White', 4, 250, 7);
+insert into brandsList(id, brand_name, color, size, price, qty_in_stock) values (17, 'Reebok', 'Black', 4, 100, 8);
+insert into brandsList(id, brand_name, color, size, price, qty_in_stock) values (18, 'Vans', 'Blue', 8, 900, 4);
+insert into brandsList(id, brand_name, color, size, price, qty_in_stock) values (19, 'Vans', 'Purple', 7, 400, 7);
+insert into brandsList(id, brand_name, color, size, price, qty_in_stock) values (20, 'Adidas', 'Purple', 8, 700, 9);
 
 
 
