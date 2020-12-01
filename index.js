@@ -85,7 +85,7 @@ app.get('/', function (req, res) {
 
 //GET	/api/shoes	List all shoes in stock
 
-app.get('/api/brandsList', brandsListAPI.getList)
+app.get('/api/shoes', brandsListAPI.getList)
 
 // GET	/api/shoes/brand/:brandname	List all shoes for a given brand
 // app.get('/api/shoes/brand/:brand_name', async function (req, res) {
@@ -100,6 +100,7 @@ app.get('/api/brandsList', brandsListAPI.getList)
 // GET	/api/shoes/size/:size	List all shoes for a given size
 
 app.get('/api/shoes/size/:size', function (req, res) {
+
     res.render('')
 })
 

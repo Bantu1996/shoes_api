@@ -1,31 +1,31 @@
-create table brands(
-    id serial not null primary key,
-    brand_name text not null
-);
+-- create table brands(
+--     id serial not null primary key,
+--     brand_name text not null
+-- );
 
-create table colors(
-    id serial not null primary key,
-    color text not null
+-- create table colors(
+--     id serial not null primary key,
+--     color text not null
    
-);
+-- );
 
-create table sizes(
-    id serial not null primary key,
-    size int not null
+-- create table sizes(
+--     id serial not null primary key,
+--     size int not null
  
-);
+-- );
 
-    create table stock_level(
-        id serial not null primary key,
-        price decimal(10,2),
-        qty_in_stock int not null,
-        brands_id int not null,
-        colors_id int not null,
-        sizes_id int not null,
-        foreign key(brands_id ) references brands(id),
-        foreign key(colors_id) references colors(id),
-        foreign key(sizes_id ) references sizes(id)
-    );
+    -- create table stock_level(
+    --     id serial not null primary key,
+    --     price decimal(10,2),
+    --     qty_in_stock int not null,
+    --     brands_id int not null,
+    --     colors_id int not null,
+    --     sizes_id int not null,
+    --     foreign key(brands_id ) references brands(id),
+    --     foreign key(colors_id) references colors(id),
+    --     foreign key(sizes_id ) references sizes(id)
+    -- );
 
 
 create table brandsList(
