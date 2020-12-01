@@ -1,3 +1,4 @@
+const request = require('supertest');
 const Brands = require('./routes/brands');
 const BrandsAPI = require('./api/brands-api');
 const Colors = require('./routes/colors');
@@ -83,15 +84,17 @@ app.get('/', function (req, res) {
 
 app.get('/api/shoes', async function (req, res) {
     var data = await brandsListFunction.getList()
-    console.log(data);
-    
+
     res.send(data)
 }
-    )
+)
 
 // GET	/api/shoes/brand/:brandname	List all shoes for a given brand
-app.get('/api/shoes/brand/:brandname', function (req, res) {
-    res.render('')
+app.get('/api/shoes/brand/:brand_name', async function (req, res) {
+    var data = await brandsListFunction.getListOfBrands()
+    console.log(data);
+
+    res.send(data)
 })
 
 // GET	/api/shoes/size/:size	List all shoes for a given size
@@ -115,41 +118,15 @@ app.post('/api/shoes/sold/:id', function (req, res) {
 // POST	/api/shoes
 
 app.post('/api/shoes/brand', async function (req, res) {
-    var branding = req.body.brand;
-    var colouring = req.body.color;
-    // var sizing = req.body.size;
-    // var pricing = req.body.price;
-    // var stocking = req.body.in_stock
-    if (branding === "") {
-        req.flash('error', 'Please enter a brand name')
-        res.redirect('/')
-    }
-    else {
-        // var cilId = await colorsFunction.brandColorsId();
-        var brands = await brandsFunction.insertFun(branding);
-        var colors = await colorsFunction.insertFun(colouring);
-        if (brands === true) {
-            req.flash('success', "You have successfully entered brand")
-        }
-        else if(colors === true){
-             req.flash('success', "You have successfully entered color")
+    // var branding = req.body.brand;
+    // var colouring = req.body.color;
 
-        }
-    }
-    //  const colId = await colorsFunction.colorId(colouring)
+    // var brands = await brandsFunction.insertFun(branding);
+    // var colors = await colorsFunction.insertFun(colouring);
+
 
     res.send(await brandsListFunction.getList())
-    // res.render('index', {
-    //     brand: await brandsFunction.getList(),
-    //     bran: await colorsFunction.getList()
 
-    //     // color: colouring,
-    //     // colors,
-    //     // colId,
-    //     // sizing,
-    //     // pricing,
-    //     // stocking
-    // })
 })
 
 
