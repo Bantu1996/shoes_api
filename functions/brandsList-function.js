@@ -5,15 +5,15 @@ module.exports = function BrandsListFunction(pool){
         return query.rows
 
     }
-    async function getListOfBrands(name) {
-        var query = await pool.query('select brand_name from brandsList where brand_name = $1', [name])
-         return query.rows
+    // async function getListOfBrands(name) {
+    //     var query = await pool.query('select brand_name from brandsList where brand_name = $1', [name])
+    //      return query.rows
  
-     }
+    //  }
  
 
 return {
     getList,
-    getListOfBrands
+    // getListOfBrands
 }
 }

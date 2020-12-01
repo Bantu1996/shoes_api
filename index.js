@@ -32,10 +32,13 @@ const pool = new Pool({
 });
 
 
-const brandsFunction = BrandsFunction(pool);
-const brandsRoutes = Brands(brandsFunction);
-const brandsListFunction = BrandsListFunction(pool)
-const categoryAPI = BrandsAPI(brandsFunction);
+const brandsListFunction = BrandsFunction(pool);
+const brandsListRoutes = Brands(brandsListFunction);
+const brandsListAPI = BrandsAPI(brandsListFunction);
+// const brandsListFunction = BrandsListFunction(pool)
+//  const brandsListRoutes = BrandsList(brandsListFunction)
+// const brandsListAPI = BrandsListAPI(brandsListFunction)
+
 const colorsFunction = ColorsFunction(pool);
 const colorsRoutes = Colors(colorsFunction);
 const colorsAPI = ColorsAPI(colorsFunction);
@@ -82,20 +85,17 @@ app.get('/', function (req, res) {
 
 //GET	/api/shoes	List all shoes in stock
 
-app.get('/api/shoes', async function (req, res) {
-    var data = await brandsListFunction.getList()
-
-    res.send(data)
-}
-)
+app.get('/api/brandsList', brandsListAPI.getList)
 
 // GET	/api/shoes/brand/:brandname	List all shoes for a given brand
-app.get('/api/shoes/brand/:brand_name', async function (req, res) {
-    var data = await brandsListFunction.getListOfBrands()
-    console.log(data);
+// app.get('/api/shoes/brand/:brand_name', async function (req, res) {
+//     var data = await brandsListFunction.getListOfBrands()
+//     console.log(data);
 
-    res.send(data)
-})
+//     res.send(data)
+// })
+app.get('/api/brandsList', brandsListAPI.getList)
+
 
 // GET	/api/shoes/size/:size	List all shoes for a given size
 

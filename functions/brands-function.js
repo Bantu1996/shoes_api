@@ -1,4 +1,4 @@
-module.exports = function BrandsFunction(pool){
+module.exports = function BrandsListFunction(pool) {
 
     // async function checkBrands(name) {
     //     var using = name.charAt(0).toUpperCase() + name.slice(1).toLowerCase()
@@ -15,16 +15,16 @@ module.exports = function BrandsFunction(pool){
     // }
 
     async function getList() {
-        var list = await pool.query('SELECT brand_name FROM brands')
+        var list = await pool.query('select id, brand_name, color, size, price, qty_in_stock from brandsList')
         return list.rows;
     }
 
 
-    return{
+    return {
         // checkBrands,
         // insertFun,
         getList
-        
+
     }
 }
 

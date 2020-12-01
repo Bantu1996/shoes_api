@@ -61,7 +61,6 @@ insert into brandsList(id, brand_name, color, size, price, qty_in_stock) values 
 insert into brandsList(id, brand_name, color, size, price, qty_in_stock) values (17, 'Reebok', 'Black', 4, 100, 8);
 insert into brandsList(id, brand_name, color, size, price, qty_in_stock) values (18, 'Vans', 'Blue', 8, 900, 4);
 insert into brandsList(id, brand_name, color, size, price, qty_in_stock) values (19, 'Vans', 'Purple', 7, 400, 7);
-insert into brandsList(id, brand_name, color, size, price, qty_in_stock) values (20, 'Adidas', 'Purple', 8, 700, 9);
 
 
 

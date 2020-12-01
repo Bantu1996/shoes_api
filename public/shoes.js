@@ -29,7 +29,7 @@ function filterShoes() {
     // let size = sizeSelection.value;
 
     axios
-    .get('/api/shoes')
+    .get("/api/brandsList")
     .then(function(results){
         let response = results.data;
         // let data = response.data;
