@@ -1,31 +1,32 @@
-module.exports = function BrandsListFunction(pool) {
-
-    // async function checkBrands(name) {
-    //     var using = name.charAt(0).toUpperCase() + name.slice(1).toLowerCase()
-    //     var check = await pool.query('SELECT brand_name FROM brands WHERE brand_name=$1 ', [using]);
-    //     return check;
-    // }
-
-
-    // async function insertFun(brand) {
-    //     var using = brand.charAt(0).toUpperCase() + brand.slice(1).toLowerCase()
-    //     let query = await pool.query('insert into brands(brand_name) values ($1)', [using]);
-    //     return query
-
-    // }
+module.exports = function BrandsListFunction(pool){
 
     async function getList() {
-        var list = await pool.query('select id, brand_name, color, size, price, qty_in_stock from brandsList')
-        return list.rows;
-    }
-
-
-    return {
-        // checkBrands,
-        // insertFun,
-        getList
+       var query = await pool.query('select id, brand_name, color, size, price, qty_in_stock from brandsList')
+        return query.rows
 
     }
+    async function getListOfBrands() {
+        var query = await pool.query('select brand_name from brandsList')
+
+            return query.rows;
+      }
+
+      async function getListOfSizes() {
+        var query = await pool.query('select size from brandsList')
+
+            return query.rows;
+      }
+
+      async function getListOfSizesAndBrands() {
+        var query = await pool.query('select brand_name, size from brandsList')
+
+            return query.rows;
+      }
+return {
+    getList,
+    getListOfBrands,
+    getListOfSizes,
+    getListOfSizesAndBrands
 }
-
+}
 

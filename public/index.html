@@ -6,13 +6,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Shoe Maker</title>
     <link rel="stylesheet" href="style.css">
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.4.2/handlebars.js"
-        integrity="sha256-hSzapznWRy/aOZkctlN03an9DxCLlN8ZCQS0lxntiHg=" crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.19.0/axios.min.js"
-        integrity="sha256-S1J4GVHHDMiirir9qsXWc8ZWw74PHHafpsHp5PXtjTs=" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.4.2/handlebars.js" integrity="sha256-hSzapznWRy/aOZkctlN03an9DxCLlN8ZCQS0lxntiHg=" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.19.0/axios.min.js" integrity="sha256-S1J4GVHHDMiirir9qsXWc8ZWw74PHHafpsHp5PXtjTs=" crossorigin="anonymous"></script>
 
-
-    <script type="text/x-script" class="response">
+    <script type="text/x-script" class="brandsFilterTemplateText sizeFilterTemplateText">
         <table>
             <tr>
                 <th>Brand</th>
@@ -21,12 +18,12 @@
                 <th>Price</th>
 				<th>Qty_in_stock</th>
             </tr>
-            {{#each brandsList}}
+            {{#each shoesFilter}}
 
 
             <tr>
                 <td>
-                    <li>{{this.brand}}</li>
+                    <li>{{this.brand_name}}</li>
                 </td>
                 <td>
                     <li>{{this.color}}</li>
@@ -48,6 +45,26 @@
 
     </script>
 
+    <script type="text/x-script" class="brandsTemplateText">
+
+        {{#each brand}}
+
+        <option value="{{this}}" name="brandSelection">{{this}}</option> 
+
+        {{/each}}
+
+    </script>
+
+    <script type="text/x-script" class="sizeTemplateText">
+
+        {{#each size}}
+
+        <option value="{{this}}" name="sizeSelection">{{this}}</option>
+
+        {{/each}}
+
+    </script>
+
 </head>
 
 <body>
@@ -65,12 +82,14 @@
             <h1>Brand</h1>
 
 
-            <select class="brandsList brandSelection "></select>
+            <select class="brandsList brandSelection ">
+
+            </select>
 
 
 
             <h1>Size</h1>
-            <select class="sizesList sizeSelection ">
+            <select class="sizeList sizeSelection ">
 
             </select>
 
@@ -79,8 +98,8 @@
         </div>
 
         <h2>Results</h2>
-        <div class="response">
-            <div class="response">
+        <div class="brandsFilter">
+            <div class="brandsFilter">
 
 
             </div>

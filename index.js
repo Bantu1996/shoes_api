@@ -1,12 +1,8 @@
 const request = require('supertest');
 const Brands = require('./routes/brands');
 const BrandsAPI = require('./api/brands-api');
-const Colors = require('./routes/colors');
-const ColorsAPI = require('./api/colors-api');
-const Sizes = require('./routes/sizes');
-const SizesAPI = require('./api/sizes-api');
-const Stock_level = require('./routes/stock_level');
-const Stock_levelAPI = require('./api/stock_level-api');
+var cors = require('cors')
+
 
 
 const express = require('express');
@@ -16,10 +12,6 @@ const bodyParser = require('body-parser');
 
 
 const BrandsFunction = require('./functions/brands-function');
-const BrandsListFunction = require('./functions/brandsList-function');
-const ColorsFunction = require('./functions/colors-function');
-const SizesFunction = require('./functions/sizes-function');
-const Stock_levelFunction = require('./functions/stock_level-function');
 
 
 var exphbs = require('express-handlebars');
@@ -35,22 +27,10 @@ const pool = new Pool({
 const brandsListFunction = BrandsFunction(pool);
 const brandsListRoutes = Brands(brandsListFunction);
 const brandsListAPI = BrandsAPI(brandsListFunction);
-// const brandsListFunction = BrandsListFunction(pool)
-//  const brandsListRoutes = BrandsList(brandsListFunction)
-// const brandsListAPI = BrandsListAPI(brandsListFunction)
-
-const colorsFunction = ColorsFunction(pool);
-const colorsRoutes = Colors(colorsFunction);
-const colorsAPI = ColorsAPI(colorsFunction);
-const sizesFunction = SizesFunction(pool);
-const sizesRoutes = Sizes(sizesFunction);
-const sizesAPI = SizesAPI(sizesFunction);
-const stock_levelFunction = Stock_levelFunction(pool);
-const stock_levelRoutes = Stock_level(stock_levelFunction);
-const stock_levelAPI = Stock_levelAPI(stock_levelFunction);
 
 
 const app = express();
+app.use(cors())
 
 app.engine('handlebars', exphbs({ defaultLayout: 'main' }));
 app.set('view engine', 'handlebars');
@@ -79,36 +59,13 @@ app.get('/', function (req, res) {
 });
 
 
-
-
-
-
-//GET	/api/shoes	List all shoes in stock
-
 app.get('/api/shoes', brandsListAPI.getList)
 
-// GET	/api/shoes/brand/:brandname	List all shoes for a given brand
-// app.get('/api/shoes/brand/:brand_name', async function (req, res) {
-//     var data = await brandsListFunction.getListOfBrands()
-//     console.log(data);
+app.get('/api/shoes/size/:size', brandsListAPI.getListOfSizes)
 
-//     res.send(data)
-// })
-app.get('/api/brandsList', brandsListAPI.getList)
+app.get('/api/shoes/brand/:brandname/size/:size',brandsListAPI.getListOfSizesAndBrands)
 
-
-// GET	/api/shoes/size/:size	List all shoes for a given size
-
-app.get('/api/shoes/size/:size', function (req, res) {
-
-    res.render('')
-})
-
-// GET	/api/shoes/brand/:brandname/size/:size	List all shoes for a given brand and size
-
-app.get('/api/shoes/brand/:brandname/size/:size', function (req, res) {
-    res.render('')
-})
+app.post('/api/shoes/brand/brand_name', brandsListAPI.getListOfBrands)
 
 // POST	/api/shoes/sold/:id	Update the stock levels when a shoe is sold
 
@@ -118,17 +75,8 @@ app.post('/api/shoes/sold/:id', function (req, res) {
 
 // POST	/api/shoes
 
-app.post('/api/shoes/brand', async function (req, res) {
-    // var branding = req.body.brand;
-    // var colouring = req.body.color;
+app.get('/api/shoes/brand', brandsListAPI.getListOfBrands)
 
-    // var brands = await brandsFunction.insertFun(branding);
-    // var colors = await colorsFunction.insertFun(colouring);
-
-
-    res.send(await brandsListFunction.getList())
-
-})
 
 
 var portNumber = process.env.PORT || 3005;
