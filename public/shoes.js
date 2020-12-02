@@ -5,33 +5,88 @@ const sizeSelection = document.querySelector(".sizeSelection");
 const sizeTemplate = Handlebars.compile(sizeTemplateText);
 
 const brandsElem = document.querySelector(".brand");
-const brandsList = document.querySelector(".brandsList");
-const brandsTemplateText = document.querySelector(".brandsTemplateText").innerHTML;
+const brandList = document.querySelector(".brandList");
+const brandTemplateText = document.querySelector(".brandTemplateText").innerHTML;
 const brandSelection = document.querySelector(".brandSelection");
-const brandsTemplate = Handlebars.compile(brandsTemplateText);
-const brandsFilterTemplateText = document.querySelector(".brandsFilterTemplateText").innerHTML;
-const sizeFilterTemplateText = document.querySelector(".sizeFilterTemplateText").innerHTML;
-const Elem = document.querySelector(".size");
+const brandTemplate = Handlebars.compile(brandTemplateText);
+
+
+const shoesElem = document.querySelector(".shoes");
+const shoesList = document.querySelector(".shoesList");
+const shoesTemplateText = document.querySelector(".shoesTemplateText").innerHTML;
+const shoesTemplate = Handlebars.compile(shoesTemplateText);
+
 
 const addBtn = document.querySelector(".addBtn")
 
-function filterShoes() {
 
-    // let brand = brandSelection.value;
-    
-    // let size = sizeSelection.value;
+axios
+    .get("/api/shoes/brand_names")
+    .then(function(results) {
+        brandList.innerHTML = brandTemplate({
+            brand: results.data.data
+        });
+    });
 
     axios
-    .get("/api/shoes")
-    .then(function(results){
-        // brandsListFilter.innerHTML = brandsFilterTemplate({
-         let shoesFilter = results.data
-            console.log(shoesFilter)
-            
-
-        // })
+    .get("/api/shoes/sizes")
+    .then(function(results) {
+        sizeList.innerHTML = sizeTemplate({
+            size: results.data.data
+        });
+    });
     
-    }) 
+    
+    function filterShoes() {
+        
+        let brand = brandSelection.value;
+        
+        let size = sizeSelection.value;
+
+   
+         if(brand){
+            axios
+            .get("/api/shoes/brand_name/" + brand)
+            .then(function(results){
+                
+                console.log( results.data.data)
+                shoesList.innerHTML = shoesTemplate({
+                    shoes : results.data.data
+                    
+    
+            })
+        
+        }) 
+        }else if(size){
+            axios
+            .get("/api/shoes/size/" + size)
+            .then(function(results){
+                
+                console.log( results.data.data)
+                shoesList.innerHTML = shoesTemplate({
+                    shoes : results.data.data
+                    
+    
+            })
+        
+        }) 
+        }
+        if(brand && size){
+            axios
+            .get("/api/shoes/brand_name/" + brand  + "/size/" + size)
+            .then(function(results){
+                
+                console.log( results.data.data)
+                shoesList.innerHTML = shoesTemplate({
+                    shoes : results.data.data
+                    
+    
+            })
+        
+        }) 
+    
+        }
+      
 
 }
 

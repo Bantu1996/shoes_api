@@ -9,8 +9,8 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.4.2/handlebars.js" integrity="sha256-hSzapznWRy/aOZkctlN03an9DxCLlN8ZCQS0lxntiHg=" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.19.0/axios.min.js" integrity="sha256-S1J4GVHHDMiirir9qsXWc8ZWw74PHHafpsHp5PXtjTs=" crossorigin="anonymous"></script>
 
-    <script type="text/x-script" class="brandsFilterTemplateText sizeFilterTemplateText">
-        <table>
+    <script type="text/x-script" class="shoesTemplateText">
+        <table class="tafel">
             <tr>
                 <th>Brand</th>
                 <th>Color</th>
@@ -18,23 +18,23 @@
                 <th>Price</th>
 				<th>Qty_in_stock</th>
             </tr>
-            {{#each shoesFilter}}
+            {{#each shoes}}
 
 
             <tr>
                 <td>
-                    <li>{{this.brand_name}}</li>
+                    {{this.brand_name}}
                 </td>
                 <td>
-                    <li>{{this.color}}</li>
+                   {{this.color}}
                 </td>
                 <td>
-                    <li>{{this.size}}</li>
+                   {{this.size}}
 				</td>
                   <td>
-                    <li>{{this.price}}</li>                            </td>
+                   {{this.price}}                            </td>
 				<td>
-                    <li>{{this.qty_in_stock}}</li>
+                   {{this.qty_in_stock}}
                 </td>
             </tr>
 
@@ -45,25 +45,30 @@
 
     </script>
 
-    <script type="text/x-script" class="brandsTemplateText">
+
+    <script type="text/x-script" class="brandTemplateText">
+        <option value="" name="brandSelection">Select Brand</option>
 
         {{#each brand}}
 
-        <option value="{{this}}" name="brandSelection">{{this}}</option> 
+        <option value="{{this.brand_name}}" name="brandSelection">{{this.brand_name}}</option> 
 
         {{/each}}
 
     </script>
 
     <script type="text/x-script" class="sizeTemplateText">
+        <option value="" name="sizeSelection">Select Size</option>
 
         {{#each size}}
 
-        <option value="{{this}}" name="sizeSelection">{{this}}</option>
+        <option value="{{this.size}}" name="sizeSelection">{{this.size}}</option>
 
         {{/each}}
 
     </script>
+
+  
 
 </head>
 
@@ -82,7 +87,7 @@
             <h1>Brand</h1>
 
 
-            <select class="brandsList brandSelection ">
+            <select class="brandList brandSelection ">
 
             </select>
 
@@ -96,15 +101,17 @@
             <button type="button " name="button " class="addBtn">Search</button>
 
         </div>
+<div class="results">
+    <h2>Results</h2>
+    <div class="shoes">
+        <div class="shoesList">
 
-        <h2>Results</h2>
-        <div class="brandsFilter">
-            <div class="brandsFilter">
-
-
-            </div>
 
         </div>
+
+    </div>
+</div>
+        
 
 </body>
 <script src="shoes.js"></script>
