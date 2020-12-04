@@ -61,13 +61,17 @@ app.get('/', function (req, res) {
 
 app.get('/api/shoes', brandsListAPI.getList)
 app.get('/api/shoes/brand_name', brandsListAPI.getListOfBrands)
+app.get('/api/shoes/color', brandsListAPI.getListOfColors)
+app.get('/api/shoes/colors', brandsListAPI.getListOfDistinctColors)
+app.get('/api/shoes/brand_name/:brand_name', brandsListAPI.getListOfSpecifiedColors)
 app.get('/api/shoes/brand_names', brandsListAPI.getListOfDistinctBrands)
 app.get('/api/shoes/brand_name/:brand_name', brandsListAPI.getListOfSpecifiedBrands)
 app.get('/api/shoes/size/:size', brandsListAPI.getListOfSpecifiedSizes)
 app.get('/api/shoes/sizes', brandsListAPI.getListOfDistinctSizes)
 app.get('/api/shoes/size', brandsListAPI.getListOfSizes)
 app.get('/api/shoes/brand_name/:brand_name/size/:size',brandsListAPI.getListOfSpecificSizesAndBrands)
-
+// POST	/api/shoes
+app.post('/api/shoes', brandsListAPI.addition)
 
 
 
@@ -81,8 +85,6 @@ app.post('/api/shoes/sold/:id', function (req, res) {
 res.render('index')
 })
 
-// POST	/api/shoes
-app.post('/api/shoes/brand/brand_name', brandsListAPI.getListOfSpecifiedBrands)
 
 
 

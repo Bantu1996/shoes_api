@@ -6,8 +6,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Shoe Maker</title>
     <link rel="stylesheet" href="style.css">
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.4.2/handlebars.js" integrity="sha256-hSzapznWRy/aOZkctlN03an9DxCLlN8ZCQS0lxntiHg=" crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.19.0/axios.min.js" integrity="sha256-S1J4GVHHDMiirir9qsXWc8ZWw74PHHafpsHp5PXtjTs=" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.4.2/handlebars.js"
+        integrity="sha256-hSzapznWRy/aOZkctlN03an9DxCLlN8ZCQS0lxntiHg=" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.19.0/axios.min.js"
+        integrity="sha256-S1J4GVHHDMiirir9qsXWc8ZWw74PHHafpsHp5PXtjTs=" crossorigin="anonymous"></script>
 
     <script type="text/x-script" class="shoesTemplateText">
         <table class="tafel">
@@ -32,7 +34,8 @@
                    {{this.size}}
 				</td>
                   <td>
-                   {{this.price}}                            </td>
+                   {{this.price}} 
+                  </td>
 				<td>
                    {{this.qty_in_stock}}
                 </td>
@@ -44,7 +47,6 @@
 
 
     </script>
-
 
     <script type="text/x-script" class="brandTemplateText">
         <option value="" name="brandSelection">Select Brand</option>
@@ -68,11 +70,53 @@
 
     </script>
 
-  
+    <script type="text/x-script" class="brandInTemplateText">
+        <option value="" name="brandInSelection">Select Brand</option>
 
+        {{#each brandIn}}
+
+        <option value="{{this.brand_name}}" name="brandInSelection">{{this.brand_name}}</option> 
+
+        {{/each}}
+
+    </script>
+
+    <script type="text/x-script" class="sizeInTemplateText">
+        <option value="" name="sizeInSelection">Select Size</option>
+
+        {{#each sizeIn}}
+
+        <option value="{{this.size}}" name="sizeInSelection">{{this.size}}</option>
+
+        {{/each}}
+
+    </script>
+
+    <script type="text/x-script" class="colorTemplateText">
+        <option value="" name="colorSelection">Select Color</option>
+
+        {{#each color}}
+
+        <option value="{{this.color}}" name="colorSelection">{{this.color}}</option> 
+
+        {{/each}}
+    </script>
+
+    <script type="text/x-script" class="colorInTemplateText">
+        <option value="" name=colorInSelection">Select Color</option>
+
+        {{#each colorIn}}
+
+        <option value="{{this.color}}" name="sizeInSelection">{{this.color}}</option>
+
+        {{/each}}
+
+    </script>
+  
 </head>
 
 <body>
+
 
     <h1 style="text-align: center;">Shoe Maker</h1>
     <br>
@@ -82,36 +126,82 @@
     <div class="insertingDiv" style="text-align: justify;">
 
 
+        <div class="both">
+            <div class="dropdown">
+                <h1>Specific Search</h1>
+                <h2>Brand</h2>
 
-        <div class=" dropdown " style="text-align: center;">
-            <h1>Brand</h1>
+                <select class="brandList brandSelection ">
 
+                </select>
 
-            <select class="brandList brandSelection ">
+                <h2>Size</h2>
+                <select class="sizeList sizeSelection ">
 
-            </select>
+                </select>
 
+                <h2>Color</h2>
+                <select class="colorList colorSelection ">
 
+                </select>
+                <br>
+                <br>
+                <br>
 
-            <h1>Size</h1>
-            <select class="sizeList sizeSelection ">
+                <button type="button " name="button " class="addBtn">Search</button>
 
-            </select>
+            </div>
+            <br>
+            <br>
+            <br>
+            <div class="inserter">
 
-            <button type="button " name="button " class="addBtn">Search</button>
+                <h1>Insert Shoes</h1>
 
+                <h2>Brand</h2>
+
+                <select class="brandInList brandInSelection">
+
+                </select>
+
+                <h2>Color</h2>
+
+                <select class="colorInList colorInSelection">
+
+                </select>
+
+                <h2>Size</h2>
+
+                <select class="sizeInList sizeInSelection">
+
+                </select>
+
+                <h2>Price</h2>
+
+                <input type="text" class="priceList priceSelection" placeholder="money">
+
+                </select>
+
+                <br>
+                <br>
+                <br>
+
+                <button type="submit " name="button " class="subBtn">Submit</button>
+            </div>
         </div>
-<div class="results">
-    <h2>Results</h2>
-    <div class="shoes">
-        <div class="shoesList">
+
+        <div class="results">
+            <h2 class="res">Results</h2>
+            <div class="shoes">
+
+                <div class="shoesList">
 
 
+                </div>
+
+            </div>
         </div>
 
-    </div>
-</div>
-        
 
 </body>
 <script src="shoes.js"></script>

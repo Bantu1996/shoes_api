@@ -1,3 +1,8 @@
+body{
+	background-color: beige;
+}
+
+
 .tableStyle {
 
 	background-color: silver;
@@ -14,15 +19,68 @@
 	padding-bottom: 1em;
 
 }
-.inserter{
-	border: 0.11em;
-	border-style: solid;
+
+.dropdown{
+	border-collapse: collapse;
+	border-width: 10%;
+	/* display: inline-block; */
 	width: 20%;
-	padding-top: 11px;
-	padding-left: 11px;
-	padding-bottom: 11px;
-	padding-right: 11px;
+	height: 30%;
+	padding: 5px;
+	border: 1px solid rgb(177, 177, 189);    
+	background-color: white; 
+	text-align: center;
+	
 }
+.brandList {
+	width: 30%;
+  }
+ .both{
+	 display: flex;
+ }
+.inserter{
+	
+	border-collapse: collapse;
+	border-width: 10%;
+	float: right;
+	/* display: inline-block;  */
+	width: 20%;
+	height: 50%;
+	margin: auto;
+	padding: 5px;
+	border: 1px solid rgb(177, 177, 189);    
+	background-color: white; 
+	text-align: center;
+}
+.tafel{
+	border-collapse: collapse;
+	border-width: 10%;
+	/* display: inline-block; */
+	width: 20%;
+	height: 50%;
+	 /* margin:auto; */
+	padding: 5px;
+	border: 1px solid rgb(177, 177, 189);    
+	background-color: white; 
+	text-align: center; 
+	margin-top: auto;
+}
+
+/* .res{
+	text-align: center;
+} */
+/* .tafel {
+	width: 100px;
+	height: 100px;
+	/* background: red; */
+	/* position: relative;
+	animation: mymove 5s infinite;
+  }
+   */
+  /* @keyframes mymove {
+	from {left: 0px;}
+	to {left: 200px;}
+  } */ 
 h1{
 	text-align: center;
 }
